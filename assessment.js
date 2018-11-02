@@ -1,6 +1,10 @@
 // #1 Create an object called 'me' that has three keys, 'firstname' 'age' and 'state'. Assign the keys the appropriate values.
 
-var me = {firstname: "Justin", age: 34, state: "Arizona"}
+var me = {
+  firstname: 'Justin',
+  age: 34,
+  state: 'Arizona'
+}
 
 // #2 Add a new key/value pair to the me object using dot notation. The new key should be 'faveColor' and set it to your favorite color as a string
 
@@ -13,15 +17,17 @@ var message = {
   userName: me.firstname
 };
 //DON'T TOUCH THE CODE ABOVE
-message[password]= "123Password";
+message["text"]= "123Password";
 
 // #4 Create an object called 'adjustCount' and create two methods. One called 'upVote' and one called 'downVote'. upVote should take in a number and add one to it and downVote should take in a number and minus one from it.
 
 var adjustCount = {
   upVote: function(num){
-    num + 1},
+    return num + 1;
+  },
   downVote: function(num){
-    num - 1};
+    return num -1;
+  }
 }
 
 // #5 Create an array called 'myFriends' with four of your friends names
@@ -42,15 +48,20 @@ var myArrayCopy = myArray.slice();
 //DON'T TOUCH THE CODE BELOW
 var myNumbers = [333, 1, 4, 5, 511, 34, 88, 77, 222];
 //DON'T TOUCH THE CODE ABOVE
-evensArray = myNumbers.filter(function (val, i, arr){
-  return val % 2 ===0;
-})
+function evensOnly(array){
+    var evensArray = [];
+    for(let i=0; i<array.length; i++){
+        if(array[i]%2==0){
+            evensArray.push(array[i]);
+        }
+    }
+    console.log(evensArray);
+    return evensArray;
+}
+evensOnly(myNumbers);
 
 
 // #9 Using filter(), return only your friends of the array of people below. Assign it to a variable called 'trueFriends'.
-var trueFriends = peopleIknow.filter(function(peopleIknow){
-  return peopleIknow.friend == true;
-})
 var peopleIknow = [
   { name: "Steve", friend: true },
   { name: "Dan", friend: false },
@@ -60,14 +71,21 @@ var peopleIknow = [
   { name: "Holly", friend: true }
 ];
 
+var trueFriends = peopleIknow.filter(e =>{
+  return e.friend == true;
+});
+
 // #10 Create a function called indexFinder that will loop over an array and return a new array of the indexes of the contents e.g. [243, 123, 4, 12] would return [0,1,2,3]. 
 // Create a new variable called 'indexes' and set it to contain the indexes of randomNumbers.
 let randomNumbers = [1, 3453, 34, 456, 32, 3, 2, 0];
 
-randomNumbers.forEach(function indexFinder(val, i, arr){
-  arr[i]= i;
-});
-var indexes = (randomNumbers)
-console.log(indexes);
-//change
+
+var indexes = [];
+indexFinder = (arr) => {
+  for (let i=0; i<arr.length; i++) {
+    indexes.push(arr[i] = i);
+  }
+  return indexes;
+}
+indexFinder(randomNumbers);
 
